@@ -70,7 +70,7 @@ Then to run the tests simply:
 
 ## Visual representation
 
-<p align="center"><img src="shorturl.gif" height="600px" /></p>
+<p align="center"><img src="shorturl.gif"/></p>
 
 
 ## Painpoints
