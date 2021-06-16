@@ -1,0 +1,113 @@
+name:                short-url
+synopsis:            Project synopsis
+version:             0.0.1.0
+homepage:            https://github.com/Cmdv/short-url
+license:             MIT
+author:              Vincent Orr info@cmdv.me
+category:            Web
+build-type:          Simple
+cabal-version:       >= 1.8
+
+executable shorturl
+    main-is:
+        Main.hs
+    build-depends:
+        base >= 4.9 && < 5.0
+      , short-url
+      , persistent-postgresql
+      , wai
+      , warp
+      , monad-logger
+      , safe
+      , safe-exceptions
+      , monad-metrics
+      , wai-middleware-metrics
+      , microlens
+      , ekg
+      , ekg-core
+      , say
+    hs-source-dirs:
+        app
+    default-language:
+        Haskell2010
+    ghc-options:
+        -fwarn-unused-imports
+
+test-suite short-url-tests
+    type:
+        exitcode-stdio-1.0
+    hs-source-dirs:
+        test
+    main-is:
+        Spec.hs
+    other-modules:
+        ApiSpec
+        UserDbSpec
+    build-depends:
+        base
+      , bytestring
+      , http-types
+      , persistent
+      , persistent-postgresql
+      , short-url
+      , servant
+      , servant-server
+      , QuickCheck
+      , hspec
+      , mtl
+      , transformers
+      , text
+      , monad-metrics
+    ghc-options:
+        -threaded -rtsopts -with-rtsopts=-N -fwarn-unused-imports
+    default-language:
+        Haskell2010
+
+library
+    default-language:
+        Haskell2010
+    hs-source-dirs:
+        src
+    exposed-modules:
+        Config
+      , Init
+      , Models
+      , Api
+      , Api.ShortUrl
+      , Logger
+      , DevelMain
+      , Helper
+    build-depends:
+        base >= 4.9 && < 5.0
+      , aeson
+      , bytestring
+      , containers
+      , ekg
+      , ekg-core
+      , fast-logger
+      , foreign-store
+      , katip
+      , microlens
+      , monad-control
+      , monad-logger
+      , monad-metrics
+      , mtl
+      , persistent
+      , persistent-postgresql
+      , persistent-template
+      , random
+      , safe
+      , safe-exceptions
+      , say
+      , servant
+      , servant-server
+      , text
+      , transformers
+      , unordered-containers
+      , wai
+      , wai-extra
+      , wai-middleware-metrics
+      , warp
+      , resource-pool
+    ghc-options:
+        -fwarn-unused-imports
